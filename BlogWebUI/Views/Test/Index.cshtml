@@ -1,0 +1,100 @@
+﻿@model IEnumerable<BlogWebUI.Models.tblGonderi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiOzet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiYayinlanma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiOlusturulmaTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiGuncellenmeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiYayinlanmaTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gonderiIcerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblAdminRol.adminRolBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEtiket.etiketBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblKategori.tblKategoriBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblKullanici.kullaniciAdSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblNormalRol.normalRolBaslik)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiOzet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiYayinlanma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiOlusturulmaTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiGuncellenmeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiYayinlanmaTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gonderiIcerik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblAdminRol.adminRolBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEtiket.etiketBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblKategori.tblKategoriBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblKullanici.kullaniciAdSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblNormalRol.normalRolBaslik)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.gonderiId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.gonderiId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.gonderiId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2f69cb0331a4e14b9c86c40c560eee8" Name="Diagram1">
+        <EntityTypeShape EntityType="BlogWebUIModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblAdminRol" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblEtiket" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblGonderi" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblKategori" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblKullanici" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblNormalRol" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogWebUIModel.tblYorum" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblGonderi_tblAdminRol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblKullanici_tblAdminRol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblYorum_tblAdminRol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblGonderi_tblEtiket" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblGonderi_tblKategori" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblGonderi_tblKullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblGonderi_tblNormalRol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblYorum_tblGonderi" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblKullanici_tblNormalRol" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogWebUIModel.FK_tblYorum_tblNormalRol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

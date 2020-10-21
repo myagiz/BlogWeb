@@ -1,0 +1,115 @@
+﻿@model BlogWebUI.Models.tblGonderi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblGonderi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiOzet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiOzet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiYayinlanma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiYayinlanma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiOlusturulmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiOlusturulmaTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiGuncellenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiGuncellenmeTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiYayinlanmaTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiYayinlanmaTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gonderiIcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gonderiIcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblAdminRol.adminRolBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblAdminRol.adminRolBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEtiket.etiketBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEtiket.etiketBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblKategori.tblKategoriBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblKategori.tblKategoriBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblKullanici.kullaniciAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblKullanici.kullaniciAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNormalRol.normalRolBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNormalRol.normalRolBaslik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.gonderiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

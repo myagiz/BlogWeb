@@ -1,0 +1,101 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Muhammet Yağız</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Muhammet Yağız, Programlama, Mvc, Asp.Net">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- FontAwesome JS-->
+    <script defer src="/BlogFiles/assets/fontawesome/js/all.min.js"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="/BlogFiles/assets/css/theme-1.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <header class="header text-center">
+        <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Muhammet Yağız</a></h1>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navigation" class="collapse navbar-collapse flex-column">
+                <div class="profile-section pt-3 pt-lg-0">
+                    <img class="profile-image mb-3 rounded-circle mx-auto" src="/BlogFiles/assets/images/yago.jpg" alt="image">
+
+                    <div class="bio mb-3">Merhaba, adım Muhammet Yağız.Bu sayfamda ilgi alanıma giren konulara dair paylaşımlarda bulunacağım.Bunlar genellikle C#, Asp.Net Mvc gibi konulardır. <br><a href="#"> myagiz24@gmail.com</a></div><!--//bio-->
+                    <ul class="social-list list-inline py-3 mx-auto">
+                        <li class="list-inline-item"><a href="https://twitter.com/myagizzz"><i class="fab fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/muhammet-ya%C4%9F%C4%B1z-338516107/"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/myagiz/"><i class="fab fa-github-alt fa-fw"></i></a></li>
+                    </ul><!--//social-list-->
+                    <hr>
+                </div><!--//profile-section-->
+                <ul class="navbar-nav flex-column text-left">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home/"><i class="fas fa-home fa-fw mr-2"></i>Anasayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user fa-fw mr-2"></i>Hakkımda</a>
+                    </li>
+                        @*<li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>İletişim</a>
+                    </li>*@
+                </ul>
+
+                <div class="my-2 my-md-3">
+                    <a class="btn btn-primary" href="/login/" target="_blank">Admin Girişi</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-wrapper">
+        <section class="cta-section theme-bg-light py-5">
+            <div class="container text-center">
+                <h2 class="heading">Muhammet Yağız Blog Sayfası</h2>
+                <div class="intro">Sayfama hoşgeldiniz, yazılım ve programlama konularında birçok paylaşımda bulunacağım.Takipte kalın dostlar.</div>
+                
+            </div><!--//container-->
+        </section>
+        <section class="blog-list px-3 py-5 p-md-5">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </section>
+
+        <footer class="footer text-center py-2 theme-bg-dark">
+
+            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with  by <a href="http://yagodizayn.com" target="_blank">Muhammet Yağız</a> for developers</small>
+
+        </footer>
+
+    </div><!--//main-wrapper-->
+    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->
+    
+    <!-- Javascript -->
+    <script src="/BlogFiles/assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="/BlogFiles/assets/plugins/popper.min.js"></script>
+    <script src="/BlogFiles/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="/BlogFiles/assets/js/demo/style-switcher.js"></script>
+
+
+</body>
+</html>
+

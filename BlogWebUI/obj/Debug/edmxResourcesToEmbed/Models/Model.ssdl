@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogWebUIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAdminRol">
+    <Key>
+      <PropertyRef Name="adminRolId" />
+    </Key>
+    <Property Name="adminRolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminRolBaslik" Type="varchar" MaxLength="50" />
+    <Property Name="adminRolIcerik" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblEtiket">
+    <Key>
+      <PropertyRef Name="etiketId" />
+    </Key>
+    <Property Name="etiketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="etiketBaslik" Type="varchar" MaxLength="50" />
+    <Property Name="etiketIcerik" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblGonderi">
+    <Key>
+      <PropertyRef Name="gonderiId" />
+    </Key>
+    <Property Name="gonderiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gonderiKullaniciId" Type="int" />
+    <Property Name="gonderiKullaniciUyelikRolId" Type="int" />
+    <Property Name="gonderiKullaniciAdminId" Type="int" />
+    <Property Name="gonderiKategoriId" Type="int" />
+    <Property Name="gonderiBaslik" Type="varchar" MaxLength="80" />
+    <Property Name="gonderiEtiketId" Type="int" />
+    <Property Name="gonderiOzet" Type="varchar" MaxLength="100" />
+    <Property Name="gonderiYayinlanma" Type="int" />
+    <Property Name="gonderiOlusturulmaTarihi" Type="datetime" />
+    <Property Name="gonderiGuncellenmeTarihi" Type="datetime" />
+    <Property Name="gonderiYayinlanmaTarihi" Type="datetime" />
+    <Property Name="gonderiIcerik" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tblKategori">
+    <Key>
+      <PropertyRef Name="tblKategoriId" />
+    </Key>
+    <Property Name="tblKategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tblKategoriBaslik" Type="varchar" MaxLength="50" />
+    <Property Name="tblKategoriIcerik" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblKullanici">
+    <Key>
+      <PropertyRef Name="kullaniciId" />
+    </Key>
+    <Property Name="kullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullaniciUyelikRolId" Type="int" />
+    <Property Name="kullaniciAdminId" Type="int" />
+    <Property Name="kullaniciAdSoyad" Type="varchar" MaxLength="100" />
+    <Property Name="kullaniciTelNo" Type="varchar" MaxLength="20" />
+    <Property Name="kullaniciEmail" Type="varchar" MaxLength="50" />
+    <Property Name="kullaniciInstagram" Type="varchar" MaxLength="100" />
+    <Property Name="kullaniciTwitter" Type="varchar" MaxLength="100" />
+    <Property Name="kullaniciGitHub" Type="varchar" MaxLength="100" />
+    <Property Name="kullaniciLinkedin" Type="varchar" MaxLength="100" />
+    <Property Name="kullaniciTakmaAd" Type="varchar" MaxLength="50" />
+    <Property Name="kullaniciSifreHash" Type="nvarchar(max)" />
+    <Property Name="kullaniciKayitOlmaTarihi" Type="datetime" />
+    <Property Name="kullaniciSonGirisTarihi" Type="datetime" />
+    <Property Name="kullaniciGiris" Type="varchar" MaxLength="20" />
+    <Property Name="kullaniciProfilYazisi" Type="text" />
+  </EntityType>
+  <EntityType Name="tblNormalRol">
+    <Key>
+      <PropertyRef Name="normalRolId" />
+    </Key>
+    <Property Name="normalRolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="normalRolBaslik" Type="varchar" MaxLength="50" />
+    <Property Name="normalRolIcerik" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblYorum">
+    <Key>
+      <PropertyRef Name="yorumId" />
+    </Key>
+    <Property Name="yorumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yorumGonderiId" Type="int" />
+    <Property Name="yorumKullaniciRolId" Type="int" />
+    <Property Name="yorumKullaniciAdminId" Type="int" />
+    <Property Name="yorumBaslik" Type="varchar" MaxLength="50" />
+    <Property Name="yorumYayinlanma" Type="int" />
+    <Property Name="yorumOlusturulmaTarihi" Type="datetime" />
+    <Property Name="yorumYapilmaTarihi" Type="datetime" />
+    <Property Name="yorumIcerik" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_tblGonderi_tblAdminRol">
+    <End Role="tblAdminRol" Type="Self.tblAdminRol" Multiplicity="0..1" />
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdminRol">
+        <PropertyRef Name="adminRolId" />
+      </Principal>
+      <Dependent Role="tblGonderi">
+        <PropertyRef Name="gonderiKullaniciAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGonderi_tblEtiket">
+    <End Role="tblEtiket" Type="Self.tblEtiket" Multiplicity="0..1" />
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEtiket">
+        <PropertyRef Name="etiketId" />
+      </Principal>
+      <Dependent Role="tblGonderi">
+        <PropertyRef Name="gonderiEtiketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGonderi_tblKategori">
+    <End Role="tblKategori" Type="Self.tblKategori" Multiplicity="0..1" />
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategori">
+        <PropertyRef Name="tblKategoriId" />
+      </Principal>
+      <Dependent Role="tblGonderi">
+        <PropertyRef Name="gonderiKategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGonderi_tblKullanici">
+    <End Role="tblKullanici" Type="Self.tblKullanici" Multiplicity="0..1" />
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKullanici">
+        <PropertyRef Name="kullaniciId" />
+      </Principal>
+      <Dependent Role="tblGonderi">
+        <PropertyRef Name="gonderiKullaniciId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblGonderi_tblNormalRol">
+    <End Role="tblNormalRol" Type="Self.tblNormalRol" Multiplicity="0..1" />
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNormalRol">
+        <PropertyRef Name="normalRolId" />
+      </Principal>
+      <Dependent Role="tblGonderi">
+        <PropertyRef Name="gonderiKullaniciUyelikRolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKullanici_tblAdminRol">
+    <End Role="tblAdminRol" Type="Self.tblAdminRol" Multiplicity="0..1" />
+    <End Role="tblKullanici" Type="Self.tblKullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdminRol">
+        <PropertyRef Name="adminRolId" />
+      </Principal>
+      <Dependent Role="tblKullanici">
+        <PropertyRef Name="kullaniciAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblKullanici_tblNormalRol">
+    <End Role="tblNormalRol" Type="Self.tblNormalRol" Multiplicity="0..1" />
+    <End Role="tblKullanici" Type="Self.tblKullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNormalRol">
+        <PropertyRef Name="normalRolId" />
+      </Principal>
+      <Dependent Role="tblKullanici">
+        <PropertyRef Name="kullaniciUyelikRolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblYorum_tblAdminRol">
+    <End Role="tblAdminRol" Type="Self.tblAdminRol" Multiplicity="0..1" />
+    <End Role="tblYorum" Type="Self.tblYorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdminRol">
+        <PropertyRef Name="adminRolId" />
+      </Principal>
+      <Dependent Role="tblYorum">
+        <PropertyRef Name="yorumKullaniciAdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblYorum_tblGonderi">
+    <End Role="tblGonderi" Type="Self.tblGonderi" Multiplicity="0..1" />
+    <End Role="tblYorum" Type="Self.tblYorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGonderi">
+        <PropertyRef Name="gonderiId" />
+      </Principal>
+      <Dependent Role="tblYorum">
+        <PropertyRef Name="yorumGonderiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblYorum_tblNormalRol">
+    <End Role="tblNormalRol" Type="Self.tblNormalRol" Multiplicity="0..1" />
+    <End Role="tblYorum" Type="Self.tblYorum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNormalRol">
+        <PropertyRef Name="normalRolId" />
+      </Principal>
+      <Dependent Role="tblYorum">
+        <PropertyRef Name="yorumKullaniciRolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BlogWebUIModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAdminRol" EntityType="Self.tblAdminRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEtiket" EntityType="Self.tblEtiket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGonderi" EntityType="Self.tblGonderi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKategori" EntityType="Self.tblKategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKullanici" EntityType="Self.tblKullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNormalRol" EntityType="Self.tblNormalRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblYorum" EntityType="Self.tblYorum" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblGonderi_tblAdminRol" Association="Self.FK_tblGonderi_tblAdminRol">
+      <End Role="tblAdminRol" EntitySet="tblAdminRol" />
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGonderi_tblEtiket" Association="Self.FK_tblGonderi_tblEtiket">
+      <End Role="tblEtiket" EntitySet="tblEtiket" />
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGonderi_tblKategori" Association="Self.FK_tblGonderi_tblKategori">
+      <End Role="tblKategori" EntitySet="tblKategori" />
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGonderi_tblKullanici" Association="Self.FK_tblGonderi_tblKullanici">
+      <End Role="tblKullanici" EntitySet="tblKullanici" />
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblGonderi_tblNormalRol" Association="Self.FK_tblGonderi_tblNormalRol">
+      <End Role="tblNormalRol" EntitySet="tblNormalRol" />
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKullanici_tblAdminRol" Association="Self.FK_tblKullanici_tblAdminRol">
+      <End Role="tblAdminRol" EntitySet="tblAdminRol" />
+      <End Role="tblKullanici" EntitySet="tblKullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblKullanici_tblNormalRol" Association="Self.FK_tblKullanici_tblNormalRol">
+      <End Role="tblNormalRol" EntitySet="tblNormalRol" />
+      <End Role="tblKullanici" EntitySet="tblKullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblYorum_tblAdminRol" Association="Self.FK_tblYorum_tblAdminRol">
+      <End Role="tblAdminRol" EntitySet="tblAdminRol" />
+      <End Role="tblYorum" EntitySet="tblYorum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblYorum_tblGonderi" Association="Self.FK_tblYorum_tblGonderi">
+      <End Role="tblGonderi" EntitySet="tblGonderi" />
+      <End Role="tblYorum" EntitySet="tblYorum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblYorum_tblNormalRol" Association="Self.FK_tblYorum_tblNormalRol">
+      <End Role="tblNormalRol" EntitySet="tblNormalRol" />
+      <End Role="tblYorum" EntitySet="tblYorum" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

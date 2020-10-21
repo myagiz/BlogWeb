@@ -1,0 +1,41 @@
+﻿
+@model BlogWebUI.Models.tblGonderi
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<article class="blog-post px-3 py-5 p-md-5">
+    <div class="container">
+        <header class="blog-post-header">
+            <div style="margin: -65px"></div>
+            <h2 class="title mb-2">@Model.gonderiBaslik</h2>
+            <div class="meta mb-3"><span class="date">@Model.tblKullanici.kullaniciAdSoyad</span><span class="time">@Model.tblKategori.tblKategoriBaslik</span><span class="comment">@Model.tblEtiket.etiketBaslik</span></div>
+        </header>
+
+        <div class="blog-post-body">
+            <figure class="blog-banner">
+                <img class="img-fluid" src="@Model.gonderiOzet">
+                <div style="margin: 15px"></div>
+                @Html.Raw(Model.gonderiIcerik)
+            <div class="blog-comments-section">
+                <div id="disqus_thread"></div>
+                <h3>Yorum yap</h3>
+                <br />
+                <input type="text" id="adsoyad" placeholder="Adınız ve Soyadınız" required class="form-control" />
+                <br />
+                <input type="text" id="email" placeholder="Email Adresiniz" required class="form-control" />
+                <br />
+                <textarea id="icerik" class="form-control" placeholder="Yorumunuzu Giriniz"></textarea>
+                <br />
+                <button type="button" class="btn btn-success" id="gonder" value="Yorum Yap">Yorum Yap</button>
+
+            </div><!--//blog-comments-section-->
+            </figure>
+        </div>
+    </div><!--//container-->
+    <nav class="blog-nav nav nav-justified my-5">
+        <a class="nav-link-next nav-item nav-link rounded" href="/home/">Blog Listesine Geri Dön <i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+    </nav>
+</article>
+

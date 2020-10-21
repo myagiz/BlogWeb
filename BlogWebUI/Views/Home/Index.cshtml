@@ -1,0 +1,27 @@
+﻿@using BlogWebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList<tblGonderi>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@foreach (var g in Model)
+{
+    <div class="item mb-5">
+        <div class="media">
+            <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="@g.gonderiOzet" width="450" height="450">
+            <div class="media-body">
+                <h3 class="title mb-1"><a href="/home/detay/@g.gonderiId">@g.gonderiBaslik</a></h3>
+                <div class="meta mb-1"><span class="date">@g.tblKullanici.kullaniciAdSoyad</span><span class="time">@g.tblKategori.tblKategoriBaslik</span><span class="comment">@g.tblEtiket.etiketBaslik</span></div>
+                <div class="intro"> @Html.Raw(g.gonderiIcerik.Substring(0, Math.Min(g.gonderiIcerik.Length, 200)))...</div>
+                <a class="more-link" href="/home/detay/@g.gonderiId">Daha Fazlasına Gözat &rarr;</a>
+            </div><!--//media-body-->
+        </div><!--//media-->
+    </div><!--//item-->
+}
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+
+
+
