@@ -1,0 +1,47 @@
+﻿@using BlogWebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList<tblKategori>
+
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3><i>Kategoriler Listesi</i></h3>
+    <hr />
+    <a href="/admin/yenikategoriekle" class="badge badge-primary">Yeni Kategori Eklemek İçin Tıklayınız</a>
+    <div style="margin-top: 20px"></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Kategori No</th>
+                <th scope="col">Kategori Başlık</th>
+                <th scope="col">Kategori İçerik</th>
+                <th scope="col">Kategori Sil</th>
+                <th scope="col">Kategori Düzenle</th>
+            </tr>
+        </thead>
+        @foreach (var k in Model)
+        {
+            <tbody>
+                <tr>
+                    <th scope="row">@k.tblKategoriId</th>
+                    <th scope="row">@k.tblKategoriBaslik</th>
+                    <th scope="row">@k.tblKategoriIcerik</th>
+                    <td>@Html.ActionLink("Kategori Sil", "KategoriSil", new { id = k.tblKategoriId }, new { @class = "badge badge-danger", onclick = "return confirm('UYARI !!! Kategori Silmek İstediğinize Emin Misiniz?')" })</td>
+                    <td><a href="/admin/kategoriduzenle/@k.tblKategoriId" class="badge badge-success">Kategori Düzenle</a></td>
+                </tr>
+            </tbody>
+        }
+
+    </table>
+    <nav aria-label="style">
+        <ul class="pagination pagination-sm">
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Kategoriler", new { sayfa }))
+        </ul>
+    </nav>
+</div>
+
+

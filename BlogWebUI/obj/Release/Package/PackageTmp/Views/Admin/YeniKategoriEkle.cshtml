@@ -1,0 +1,31 @@
+﻿@model BlogWebUI.Models.tblKategori
+@{
+    ViewBag.Title = "YeniKategoriEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3><i>Yeni Kategori Ekle</i></h3>
+    <hr />
+    
+    @using (Html.BeginForm("YeniKategoriEkle", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <form>
+            <div class="form-group">
+                <label>Kategori Başlık</label>
+                @Html.TextBoxFor(x => x.tblKategoriBaslik, new { @class = "form-control", placeholder = "Örnek : Java" })
+            </div>
+            <div class="form-group">
+                <label>Kategori İçerik</label>
+                @Html.TextBoxFor(x => x.tblKategoriIcerik, new { @class = "form-control", placeholder = "Örnek : Programlama dilidir." })
+            </div>
+            <button class="btn btn-outline-primary">Ekle</button>
+        </form>
+    }
+    
+</div>
+
+
+
+

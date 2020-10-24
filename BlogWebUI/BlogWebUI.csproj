@@ -141,6 +141,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\SeoHelper.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -719,6 +720,7 @@
     <Content Include="AdminPanelFiles\vendors\images\tick.svg" />
     <Content Include="AdminPanelFiles\vendors\images\upload-file-img.jpg" />
     <Content Include="AdminPanelFiles\vendors\images\wave.png" />
+    <Content Include="AdminPanelFiles\vendors\images\YagoDizaynLogo.png" />
     <Content Include="AdminPanelFiles\vendors\scripts\advanced-components.js" />
     <Content Include="AdminPanelFiles\vendors\scripts\apexcharts-setting.js" />
     <Content Include="AdminPanelFiles\vendors\scripts\calendar-setting.js" />

@@ -1,0 +1,57 @@
+﻿@using BlogWebUI.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList<tblGonderi>
+@{
+    ViewBag.Title = "Bloglar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <h3><i>Bloglar Listesi</i></h3>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Kategori</th>
+                <th scope="col">Başlık</th>
+                <th scope="col">Etiket</th>
+                <th scope="col">Yayın Tar.</th>
+                <th scope="col">Gönderen</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Resim</th>
+                <th scope="col">İçerik</th>
+                <th scope="col">Sil</th>
+                <th scope="col">Düzenle</th>
+
+            </tr>
+        </thead>
+        @foreach (var k in Model)
+        {
+            <tbody>
+                <tr>
+                    <td scope="row">@k.tblKategori.tblKategoriBaslik</td>
+                    <td scope="row">@k.gonderiBaslik</td>
+                    <td scope="row">@k.tblEtiket.etiketBaslik</td>
+                    <td scope="row">@k.gonderiYayinlanmaTarihi</td>
+                    <td scope="row">@k.tblKullanici.kullaniciAdSoyad</td>
+                    <td scope="row">@k.tblAdminRol.adminRolBaslik</td>
+                    <td scope="row"><img src="@k.gonderiOzet" width="200" height="200" /></td>
+                    <td scope="row">@Html.Raw(k.gonderiIcerik.Substring(0, Math.Min(k.gonderiIcerik.Length, 250))) ...</td>
+                    <td>@Html.ActionLink("Sil", "BlogSil", new { id = k.gonderiId }, new { @class = "badge badge-danger", onclick = "return confirm('UYARI !!! Blog Paylaşımını Silmek İstediğinize Emin Misiniz?')" })</td>
+                    <td><a href="/admin/blogduzenle/@k.gonderiId" class="badge badge-success">Düzenle</a></td>
+                    
+                    @*<td>@Html.ActionLink("Kategori Sil", "KategoriSil", new { id = k.tblKategoriId }, new { @class = "badge badge-danger", onclick = "return confirm('UYARI !!! Kategori Silmek İstediğinize Emin Misiniz?')" })</td>
+                    <td><a href="/admin/kategoriduzenle/@k.tblKategoriId" class="badge badge-success">Kategori Düzenle</a></td>*@
+                </tr>
+            </tbody>
+        }
+
+    </table>
+    <nav aria-label="style">
+        <ul class="pagination pagination-sm">
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Bloglar", new { sayfa }))
+        </ul>
+    </nav>
+</div>
+
